@@ -1,2 +1,2 @@
 # Tic-Tac-Toe
-Learning react
+Learning react by making a tic-tac-toe game :D

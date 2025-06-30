@@ -21,7 +21,7 @@ function Board({ xIsNext, squares, onPlay }) {
 
   return (
     <>
-      <div className="status">{status}</div>
+      <h1 className="status">{status}</h1>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -54,15 +54,11 @@ export default function Game() {
   }
 
   const getButtonDescription = (move) =>
-    move > 0 ? `Go to move # ${move}` : "Go to game start";
-
-  const jumpTo = (move) => {
-    setCurrentMove(move);
-  };
+    move > 0 ? `Go to move #${move}` : "Go to game start";
 
   const moves = history.map((squares, move) => (
     <li key={move}>
-      <button onClick={() => jumpTo(move)}>{getButtonDescription(move)}</button>
+      <button className="travel-in-time-button" onClick={() => setCurrentMove(move)}>{getButtonDescription(move)}</button>
     </li>
   ));
 
@@ -70,10 +66,11 @@ export default function Game() {
     <div className="game">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        <div className="current-move">{currentMove === 0 ? "You are at the start move" : `You are at move #${currentMove}`}</div>
       </div>
 
       <div className="game-info">
-        <ol>{moves}</ol>
+        <ol className="travel-in-time-button-list">{moves}</ol>
       </div>
     </div>
   );

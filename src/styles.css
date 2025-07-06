@@ -1,3 +1,7 @@
+:root {
+  --square-size: 100px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -46,45 +50,50 @@ ul {
   padding-inline-start: 20px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  padding: 0;
-}
-
 .square {
   background: #fff;
   border: 1px solid #999;
   float: left;
-  font-size: 24px;
+  font-size: 60px;
   font-weight: bold;
   line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
+  height: var(--square-size);
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 100px;
 }
 
-.board-row:after {
-  clear: both;
-  content: '';
-  display: table;
+.board-row {
+  height: var(--square-size);
 }
 
 .status {
   margin-bottom: 10px;
 }
+
 .game {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 .game-info {
   margin-left: 20px;
+}
+
+.current-move {
+  margin-top: 12px;
+  font-size: 20px;
+}
+
+.travel-in-time-button-list{
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.travel-in-time-button {
+  cursor: pointer;
+  border: 1px solid gray;
+  padding: 2px 4px;
 }
